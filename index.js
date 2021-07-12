@@ -1,4 +1,5 @@
 const inquirer = require("inquirer");
+let { multiply, divide, add, subtract } = require("./assets/operationFuncs.js");
 
 let operandMap = {
     "*": "multiply",
