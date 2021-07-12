@@ -4,6 +4,11 @@ function multiply(x, y) {
     let xArr = x.split("/").map(v => +v);
     let yArr = y.split("/").map(v => +v);
     let newArr = xArr.map((v, i) => v * yArr[i]);
+    let commonDenom = findCommonDenom(newArr);
+    while (commonDenom) {
+        newArr = newArr.map(v => v / commonDenom);
+        commonDenom = findCommonDenom(newArr)
+    }
     return newArr.join('/');
 }
 
