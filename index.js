@@ -22,7 +22,7 @@ inquirer
             .split(' ')
             .map(val => operandMap[val] ? operandMap[val] : val);
 
-        opFuncs[inputArr[1]](inputArr[0], inputArr[2]);
+        console.log(opFuncs[inputArr[1]](inputArr[0], inputArr[2]));
     })
     .catch(err => {
         console.log(err.message)
