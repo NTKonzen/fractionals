@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-let { multiply, divide, add, subtract } = require("./assets/operationFuncs.js");
+let opFuncs = require("./assets/operationFuncs.js");
 
 let operandMap = {
     "*": "multiply",
@@ -22,7 +22,7 @@ inquirer
             .split(' ')
             .map(val => operandMap[val] ? operandMap[val] : val);
 
-        console.log(inputArr)
+        opFuncs[inputArr[1]](inputArr[0], inputArr[2]);
     })
     .catch(err => {
         console.log(err.message)
