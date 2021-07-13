@@ -10,6 +10,10 @@ describe("Operations", () => {
             const product = multiply("1_1/3", "1/2");
             expect(product).toBe("2/3");
         });
+        it("returns product as mixed number fraction when given improper fractions", () => {
+            const product = multiply("7/2", "6/8");
+            expect(product).toBe("2_5/8");
+        });
         it("returns product as mixed number fraction when given mixed number fractions", () => {
             const product = multiply("1_1/3", "2_4/5");
             expect(product).toBe("3_11/15");
@@ -26,6 +30,11 @@ describe("Operations", () => {
             const quotient = divide("1_2/3", "4_5/6");
 
             expect(quotient).toBe("10/29");
+        });
+        it("returns quotient as mixed fraction when given proper fractions", () => {
+            const quotient = divide("7/9", "3/4");
+
+            expect(quotient).toBe("1_1/27");
         });
         it("returns quotient as mixed number fraction when given mixed number fractions", () => {
             const quotient = divide("7_8/9", "3_2/4");
