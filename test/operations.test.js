@@ -34,9 +34,13 @@ describe("Operations", () => {
             const product = multiply("3/-5", "1/8");
             expect(product).toBe("-3/40");
         });
-        it("negative mixed number => negative proper fraction", () => {
+        it("negative mixed number => negative mixed number", () => {
             const product = multiply("-3_1/2", "3/5");
             expect(product).toBe("-2_1/10");
+        });
+        it("negative mixed numbers & negative denominator => proper fraction", () => {
+            const product = multiply("-3_1/2", "1/-8");
+            expect(product).toBe("7/16");
         });
     });
 

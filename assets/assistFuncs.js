@@ -29,6 +29,10 @@ function convertToNums(arr) {
         // Multiply leading number with denominator and add to numerator
         arr[0] = (num > 0 ? +first[1] : +first[1] * -1) + (num * arr[1]);
     };
+    // Negative denominator and numerator make positive fraction
+    if (arr[1] < 0 && arr[0] < 0) arr = arr.map(v => Math.abs(v))
+    // negative denominator switched to negative numerator
+    else if (arr[1] < 0) arr = arr.map(v => v * (-1))
     arr = arr.map(v => +v) // convert all to nums
     return arr;
 };
@@ -37,10 +41,6 @@ function convertToNums(arr) {
 function convertToMixed(arr) {
     // if numerator equals denominator, display "1"
     if (arr[0] === arr[1]) return "1";
-    // Negative denominator and numerator make positive fraction
-    if (arr[1] < 0 && arr[0] < 0) arr = arr.map(v => Math.abs(v))
-    // negative denominator switched to negative numerator
-    else if (arr[1] < 0) arr = arr.map(v => v * (-1))
     if (Math.abs(arr[0]) > arr[1]) { // improper fraction found
         // find leading number
         let num = (arr[0] / arr[1]) >> 0; // rounds towards zero
