@@ -37,7 +37,11 @@ function convertToNums(arr) {
 function convertToMixed(arr) {
     // if numerator equals denominator, display "1"
     if (arr[0] === arr[1]) return "1";
-    else if (arr[0] > arr[1]) { // improper fraction found
+    // Negative denominator and numerator make positive fraction
+    if (arr[1] < 0 && arr[0] < 0) arr = arr.map(v => Math.abs(v))
+    // negative denominator switched to negative numerator
+    else if (arr[1] < 0) arr = arr.map(v => v * (-1))
+    if (arr[0] > arr[1]) { // improper fraction found
         // find leading number
         let num = Math.floor(arr[0] / arr[1]);
         // subtract (leading whole number * denominator) from numerator

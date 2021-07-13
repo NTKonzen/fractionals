@@ -26,6 +26,14 @@ describe("Operations", () => {
             const product = multiply("3/5", "10/3");
             expect(product).toBe("2")
         });
+        it("negative proper fraction => negative proper fraction", () => {
+            const product = multiply("-3/5", "1/8");
+            expect(product).toBe("-3/40");
+        });
+        it("negative denominator fraction => negative proper fraction", () => {
+            const product = multiply("3/-5", "1/8");
+            expect(product).toBe("-3/40");
+        });
     });
 
     describe("Divide", () => {
