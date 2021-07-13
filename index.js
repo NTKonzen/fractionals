@@ -18,11 +18,15 @@ inquirer
         // Filter unexpected characters
         if (/[^\d*\/+-_ ]/.test(input)) throw new Error("Input must only include numbers, operands, spaces, and underscores");
 
+        // Turn input into array with translated operands
         let inputArr = input
             .split(' ')
             .map(val => operandMap[val] ? operandMap[val] : val);
 
-        console.log(opFuncs[inputArr[1]](inputArr[0], inputArr[2]));
+        // run operand function
+        let result = opFuncs[inputArr[1]](inputArr[0], inputArr[2]);
+
+        console.log(result);
     })
     .catch(err => {
         console.log(err.message)
