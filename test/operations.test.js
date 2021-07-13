@@ -67,6 +67,11 @@ describe("Operations", () => {
 
             expect(difference).toBe("5/14");
         });
+        it("returns difference as mixed number fraction when given improper fractions", () => {
+            const difference = subtract("17/10", "3/4");
+
+            expect(difference).toBe("19/20");
+        });
         it("returns difference as mixed number fraction when given mixed number fractions", () => {
             const difference = subtract("5_1/3", "2_9/8");
 
