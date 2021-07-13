@@ -17,6 +17,7 @@ function multiply(x, y) {
 function divide(x, y) {
     let xArr = convertToNums(x.split('/'));
     let yArr = convertToNums(y.split('/')).reverse(); // flip divisor fraction
+    if (yArr[1] < 0 && yArr[0] > 0) yArr = yArr.map(v => v * -1);
     // multiply fractions together
     let newArr = xArr.map((v, i) => v * yArr[i]);
     let commonDiv = findCommonDiv(newArr);

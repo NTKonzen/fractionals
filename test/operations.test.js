@@ -81,6 +81,10 @@ describe("Operations", () => {
             const quotient = divide("1/3", "2/12");
             expect(quotient).toBe("2");
         });
+        it("negative proper fraction => negative mixed number", () => {
+            const quotient = divide("5/6", "-4/5");
+            expect(quotient).toBe("-1_1/24");
+        });
     });
 
     describe("Add", () => {
