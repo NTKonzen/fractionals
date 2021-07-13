@@ -18,7 +18,7 @@ describe("Operations", () => {
 
             expect(quotient).toBe("2/3");
         });
-        it("returns quotient as proper fraction when given improper fractions", () => {
+        it("returns quotient as proper fraction when given mixed number fractions", () => {
             const quotient = divide("1_2/3", "4_5/6");
 
             expect(quotient).toBe("10/29");
@@ -31,7 +31,7 @@ describe("Operations", () => {
 
             expect(sum).toBe("17/35");
         });
-        it("returns sum as improper fraction when given improper fractions", () => {
+        it("returns sum as improper fraction when given mixed number fractions", () => {
             const sum = add("2/5", "3_1/7");
 
             expect(sum).toBe("3_19/35");
@@ -39,12 +39,12 @@ describe("Operations", () => {
     });
 
     describe("Subtract", () => {
-        it("returns difference as proper fraction when given proper fractions", () => {
+        it("returns difference as proper fraction when given mixed number fractions", () => {
             const difference = subtract("4/5", "2/3");
 
             expect(difference).toBe("2/15");
         });
-        it("returns difference as proper fraction when given improper fractions", () => {
+        it("returns difference as proper fraction when given mixed number fractions", () => {
             const difference = subtract("1_6/7", "1_1/2");
 
             expect(difference).toBe("5/14");
