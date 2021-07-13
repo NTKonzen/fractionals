@@ -42,6 +42,14 @@ describe("Operations", () => {
             const product = multiply("-3_1/2", "1/-8");
             expect(product).toBe("7/16");
         });
+        it("negative proper fraction => negative proper fraction", () => {
+            const product = multiply("-1/2", "2/3");
+            expect(product).toBe("-2/6");
+        });
+        it("negative improper fraction => negative mixed number", () => {
+            const product = multiply("-10/3", "4/3");
+            expect(product).toBe("-4_4/9");
+        });
     });
 
     describe("Divide", () => {
