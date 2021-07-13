@@ -20,14 +20,14 @@ function findCommonDiv(arr) {
 
 // formats arrayed fraction
 function convertToNums(arr) {
-    let num = 0;
     // Set default denominator of 1 to handle whole numbers
     if (!arr[1]) arr[1] = 1;
     // Turns mixed nums into improper fractions
     if (arr[0].includes("_")) {
-        num = +arr[0].split("_")[0]; // find leading number
+        let first = arr[0].split("_");
+        let num = +first[0]; // find leading number
         // Multiply leading number with denominator and add to numerator
-        arr[0] = +arr[0].split("_")[1] + (num * arr[1]);
+        arr[0] = (num > 0 ? +first[1] : +first[1] * -1) + (num * arr[1]);
     };
     arr = arr.map(v => +v) // convert all to nums
     return arr;
@@ -41,11 +41,11 @@ function convertToMixed(arr) {
     if (arr[1] < 0 && arr[0] < 0) arr = arr.map(v => Math.abs(v))
     // negative denominator switched to negative numerator
     else if (arr[1] < 0) arr = arr.map(v => v * (-1))
-    if (arr[0] > arr[1]) { // improper fraction found
+    if (Math.abs(arr[0]) > arr[1]) { // improper fraction found
         // find leading number
-        let num = Math.floor(arr[0] / arr[1]);
+        let num = (arr[0] / arr[1]) >> 0; // rounds towards zero
         // subtract (leading whole number * denominator) from numerator
-        arr[0] = arr[0] - (num * arr[1]);
+        arr[0] = Math.abs(arr[0] - (num * arr[1]));
         // if numerator is 0, return whole number
         if (arr[0] === 0) return num.toString();
         return `${num}_${arr[0]}/${arr[1]}` // format mixed num
