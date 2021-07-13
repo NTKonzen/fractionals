@@ -13,6 +13,16 @@ function findCommonDiv(arr) {
         if (v > 1) foundDiv = k;
     });
     return foundDiv;
+};
+
+function convertToNums(arr) {
+    let num = 0;
+    if (arr[0].includes("_")) {
+        num = +arr[0].split("_")[0];
+        arr[0] = +arr[0].split("_")[1] + (num * arr[1]);
+    };
+    arr = arr.map(v => +v)
+    return arr;
 }
 
-module.exports = { findCommonDiv };
+module.exports = { findCommonDiv, convertToNums };

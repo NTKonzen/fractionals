@@ -1,8 +1,8 @@
-let { findCommonDiv } = require("./assistFuncs.js");
+let { findCommonDiv, convertToNums } = require("./assistFuncs.js");
 
 function multiply(x, y) {
-    let xArr = x.split("/").map(v => +v);
-    let yArr = y.split("/").map(v => +v);
+    let xArr = convertToNums(x.split('/'));
+    let yArr = convertToNums(y.split('/'));
     let newArr = xArr.map((v, i) => v * yArr[i]);
     let commonDiv = findCommonDiv(newArr);
     while (commonDiv) {
@@ -13,8 +13,8 @@ function multiply(x, y) {
 }
 
 function divide(x, y) {
-    let xArr = x.split("/").map(v => +v);
-    let yArr = y.split("/").map(v => +v).reverse();
+    let xArr = convertToNums(x.split('/'));
+    let yArr = convertToNums(y.split('/')).reverse();
     let newArr = xArr.map((v, i) => v * yArr[i]);
     let commonDiv = findCommonDiv(newArr);
     while (commonDiv) {
@@ -36,7 +36,7 @@ function add(x, y) {
         newArr = newArr.map(v => v / commonDiv);
         commonDiv = findCommonDiv(newArr);
     }
-    return newArr.join('/')
+    return newArr.join('/');
 }
 
 function subtract(x, y) {
@@ -51,7 +51,7 @@ function subtract(x, y) {
         newArr = newArr.map(v => v / commonDiv);
         commonDiv = findCommonDiv(newArr);
     }
-    return newArr.join('/')
+    return newArr.join('/');
 }
 
 module.exports = { multiply, divide, add, subtract };

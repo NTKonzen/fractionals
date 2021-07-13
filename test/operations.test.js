@@ -18,6 +18,11 @@ describe("Operations", () => {
 
             expect(quotient).toBe("2/3");
         });
+        it("returns quotient as proper fraction when given improper fractions", () => {
+            const quotient = divide("1_2/3", "4_5/6");
+
+            expect(quotient).toBe("10/29");
+        });
     });
 
     describe("Add", () => {
