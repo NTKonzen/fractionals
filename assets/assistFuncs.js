@@ -1,22 +1,17 @@
 // Finds and returns GCD (Greatest Common Divisor)
-function findCommonDiv(arr) {
-    let divMap = {};
-    arr.forEach(v => {
-        v = Math.abs(v);
-        // Checks for GCD from 2 to number value
-        for (let i = 2; i <= v; i++) {
-            if (v % i === 0) { // if divisor found
-                let k = divMap[i];
-                divMap[i] = k ? k += 1 : 1; // increase or add to map
-            };
-        }
-    });
-    let foundDiv = Object.entries(divMap)
-        // reduce each divisor found to 1 if not found two or more times
-        .map(([k, v]) => v > 1 ? k : 1)
-        // collapse all common divisors into single GCD
-        .reduce((t, v) => t * v);
-    return foundDiv;
+function findCommonDiv([x, y]) {
+    // ensure both numbers are positive
+    x = Math.abs(x)
+    y = Math.abs(y)
+    // Euclidean GCD Algorithm
+    // The GCD can be found by subtracting
+    // the smaller number from the
+    // larger number until both numbers
+    // are even
+    if (x > y) x -= y
+    else if (y > x) y -= x
+    else if (x === y) return x;
+    return findCommonDiv([x, y])
 };
 
 // formats arrayed fraction

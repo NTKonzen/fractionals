@@ -116,6 +116,54 @@ describe("Operations", () => {
             const sum = add("7/8", "1/8");
             expect(sum).toBe("1");
         });
+        it("neg & pos proper fractions => proper fraction", () => {
+            const sum = add("1/-5", "6/7");
+            expect(sum).toBe("23/35");
+        });
+        it("neg & pos proper fractions => negative proper fraction", () => {
+            const sum = add("-3/5", "1/2");
+            expect(sum).toBe("-1/10")
+        }); 6
+        it("pos & neg proper fraction => proper fraction", () => {
+            const sum = add("6/7", "-1/5");
+            expect(sum).toBe("23/35");
+        });
+        it("pos & neg proper fraction => neg proper fraction", () => {
+            const sum = add("1/2", "3/-5");
+            expect(sum).toBe("-1/10");
+        });
+        it("neg & neg proper fraction => neg proper fraction", () => {
+            const sum = add("-4/7", "3/-10");
+            expect(sum).toBe("-61/70");
+        });
+        it("neg & pos improper fractions => proper fraction", () => {
+            const sum = add("-7/2", "15/4");
+            expect(sum).toBe("1/4");
+        });
+        it("neg & pos improper fractions => neg proper fraction", () => {
+            const sum = add("10/-9", "3/24");
+            expect(sum).toBe("-71/72");
+        });
+        it("pos & neg improper fraction => proper fraction", () => {
+            const sum = add("15/4", "-7/2");
+            expect(sum).toBe("1/4");
+        });
+        it("pos & neg improper fraction => neg proper fraction", () => {
+            const sum = add("3/24", "-10/9");
+            expect(sum).toBe("-71/72");
+        });
+        it("neg & neg improper fraction => neg mixed number", () => {
+            const sum = add("-14/9", "-56/43");
+            expect(sum).toBe("-2_332/387");
+        });
+        it("neg & pos mixed numbers => proper fraction", () => {
+            const sum = add("-1_1/3", "2_1/4");
+            expect(sum).toBe("11/12");
+        });
+        it("neg & pos mixed numbers => neg mixed number", () => {
+            const sum = add("-4_24/30", "2_6/10");
+            expect(sum).toBe("-2_1/5");
+        });
     });
 
     describe("Subtract", () => {
