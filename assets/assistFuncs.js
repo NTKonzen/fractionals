@@ -2,6 +2,7 @@
 function findCommonDiv(arr) {
     let divMap = {};
     arr.forEach(v => {
+        v = Math.abs(v);
         // Checks for GCD from 2 to number value
         for (let i = 2; i <= v; i++) {
             if (v % i === 0) { // if divisor found

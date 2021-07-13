@@ -44,7 +44,7 @@ describe("Operations", () => {
         });
         it("negative proper fraction => negative proper fraction", () => {
             const product = multiply("-1/2", "2/3");
-            expect(product).toBe("-2/6");
+            expect(product).toBe("-1/3");
         });
         it("negative improper fraction => negative mixed number", () => {
             const product = multiply("-10/3", "4/3");
@@ -84,6 +84,10 @@ describe("Operations", () => {
         it("negative proper fraction => negative mixed number", () => {
             const quotient = divide("5/6", "-4/5");
             expect(quotient).toBe("-1_1/24");
+        });
+        it("negative improper fraction => negative proper fraction", () => {
+            const quotient = divide("-12/3", "11/2");
+            expect(quotient).toBe("-8/11");
         });
     });
 
