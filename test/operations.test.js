@@ -27,6 +27,11 @@ describe("Operations", () => {
 
             expect(quotient).toBe("10/29");
         });
+        it("returns quotient as mixed number fraction when given mixed number fractions", () => {
+            const quotient = divide("7_8/9", "3_2/4");
+
+            expect(quotient).toBe("2_16/63");
+        });
     });
 
     describe("Add", () => {
@@ -35,7 +40,7 @@ describe("Operations", () => {
 
             expect(sum).toBe("17/35");
         });
-        it("returns sum as improper fraction when given mixed number fractions", () => {
+        it("returns sum as mixed number fraction when given mixed number fractions", () => {
             const sum = add("2/5", "3_1/7");
 
             expect(sum).toBe("3_19/35");
@@ -52,6 +57,11 @@ describe("Operations", () => {
             const difference = subtract("1_6/7", "1_1/2");
 
             expect(difference).toBe("5/14");
+        });
+        it("returns difference as mixed number fraction when given mixed number fractions", () => {
+            const difference = subtract("5_1/3", "2_9/8");
+
+            expect(difference).toBe("2_5/24");
         });
     });
 })

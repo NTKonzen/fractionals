@@ -21,7 +21,7 @@ function divide(x, y) {
         newArr = newArr.map(v => v / commonDiv);
         commonDiv = findCommonDiv(newArr)
     }
-    return newArr.join('/');
+    return convertToMixed(newArr);
 }
 
 function add(x, y) {
