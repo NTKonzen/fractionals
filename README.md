@@ -14,13 +14,13 @@ A CLI program that takes in a typed fraction operation and outputs the resulting
 
 ### How to Use ###
 
-1. Run ```npm start``` to begin the program
-2. When prompted, enter an operation in the following format
+1. Run ```npm install``` and wait for necessary packages to install
+2. Run ```npm start``` to begin the program
+3. When prompted, enter an operation in the following format
 ```fraction (* OR / OR + OR -) fraction```
-3. Press enter
-
-Format mixed numbers as such
-```Enter 3 1/2 as 3_1/2```
+4. Include spaces between fractions and operands
+5. When entering mixed numbers (eg. 3 1/2) format them as such: ```3_1/2```
+6. Press enter
 
 ### Tests ###
 
