@@ -22,6 +22,10 @@ describe("Operations", () => {
             const product = multiply("1/3", "4");
             expect(product).toBe("1_1/3")
         });
+        it("returns whole number when given fractions", () => {
+            const product = multiply("3/5", "10/3");
+            expect(product).toBe("2")
+        });
     });
 
     describe("Divide", () => {
@@ -55,6 +59,11 @@ describe("Operations", () => {
 
             expect(quotient).toBe("9/10");
         });
+        it("returns quotient as whole number when given fractions", () => {
+            const quotient = divide("1/3", "2/12");
+
+            expect(quotient).toBe("2");
+        });
     });
 
     describe("Add", () => {
@@ -72,6 +81,11 @@ describe("Operations", () => {
             const sum = add("7/8", "6");
 
             expect(sum).toBe("6_7/8");
+        });
+        it("returns sum as whole number when given fractions", () => {
+            const sum = add("7/8", "1/8");
+
+            expect(sum).toBe("1");
         });
     });
 
@@ -105,6 +119,11 @@ describe("Operations", () => {
             const difference = subtract("4", "4/3");
 
             expect(difference).toBe("2_2/3");
+        });
+        it("returns difference as whole number when given fractions", () => {
+            const difference = subtract("2_3/4", "3/4");
+
+            expect(difference).toBe("2");
         });
     });
 })
