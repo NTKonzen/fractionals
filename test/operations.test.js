@@ -44,5 +44,10 @@ describe("Operations", () => {
 
             expect(difference).toBe("2/15");
         });
+        it("returns difference as proper fraction when given improper fractions", () => {
+            const difference = subtract("1_6/7", "1_1/2");
+
+            expect(difference).toBe("5/14");
+        });
     });
 })
