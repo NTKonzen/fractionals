@@ -20,7 +20,8 @@ inquirer
 
         // Turn input into array with translated operands
         let inputArr = input
-            .split(' ')
+            .trim()
+            .split(/\s+/)
             .map(val => operandMap[val] ? operandMap[val] : val);
 
         // run operand function
