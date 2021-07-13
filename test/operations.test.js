@@ -18,6 +18,10 @@ describe("Operations", () => {
             const product = multiply("1_1/3", "2_4/5");
             expect(product).toBe("3_11/15");
         });
+        it("returns mixed number fraction when given whole number", () => {
+            const product = multiply("1/3", "4");
+            expect(product).toBe("1_1/3")
+        })
     });
 
     describe("Divide", () => {

@@ -17,6 +17,7 @@ function findCommonDiv(arr) {
 
 function convertToNums(arr) {
     let num = 0;
+    if (!arr[1]) arr[1] = 1;
     if (arr[0].includes("_")) {
         num = +arr[0].split("_")[0];
         arr[0] = +arr[0].split("_")[1] + (num * arr[1]);
