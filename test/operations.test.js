@@ -21,7 +21,7 @@ describe("Operations", () => {
         it("returns mixed number fraction when given whole number", () => {
             const product = multiply("1/3", "4");
             expect(product).toBe("1_1/3")
-        })
+        });
     });
 
     describe("Divide", () => {
@@ -45,6 +45,16 @@ describe("Operations", () => {
 
             expect(quotient).toBe("2_16/63");
         });
+        it("returns quotient as mixed number fraction when given whole number", () => {
+            const quotient = divide("3", "2/3");
+
+            expect(quotient).toBe("4_1/2");
+        });
+        it("returns quotient as proper fraction when given whole number", () => {
+            const quotient = divide("3", "10/3");
+
+            expect(quotient).toBe("9/10");
+        });
     });
 
     describe("Add", () => {
@@ -57,6 +67,11 @@ describe("Operations", () => {
             const sum = add("2/5", "3_1/7");
 
             expect(sum).toBe("3_19/35");
+        });
+        it("returns sum as mixed number fraction when given whole number", () => {
+            const sum = add("7/8", "6");
+
+            expect(sum).toBe("6_7/8");
         });
     });
 
@@ -80,6 +95,16 @@ describe("Operations", () => {
             const difference = subtract("5_1/3", "2_9/8");
 
             expect(difference).toBe("2_5/24");
+        });
+        it("returns difference as proper fraction when given whole number", () => {
+            const difference = subtract("1", "2/3");
+
+            expect(difference).toBe("1/3");
+        });
+        it("returns difference as mixed number fraction when given whole number", () => {
+            const difference = subtract("4", "4/3");
+
+            expect(difference).toBe("2_2/3");
         });
     });
 })
