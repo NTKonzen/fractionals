@@ -17,6 +17,8 @@ function multiply(x, y) {
 function divide(x, y) {
     let xArr = convertToNums(x.split('/'));
     let yArr = convertToNums(y.split('/')).reverse(); // flip divisor fraction
+    // flips negatives if denom is neg
+    if (xArr[1] < 0 && xArr[0] > 0) xArr = xArr.map(v => v * -1);
     if (yArr[1] < 0 && yArr[0] > 0) yArr = yArr.map(v => v * -1);
     // multiply fractions together
     let newArr = xArr.map((v, i) => v * yArr[i]);

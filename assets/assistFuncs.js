@@ -26,14 +26,15 @@ function convertToNums(arr) {
     // Turns mixed nums into improper fractions
     if (arr[0].includes("_")) {
         let first = arr[0].split("_");
-        let num = +first[0]; // find leading number
+        let lead = +first[0]; // leading number
+        let num = +first[1]; // numerator
         // Multiply leading number with denominator and add to numerator
-        arr[0] = (num > 0 ? +first[1] : +first[1] * -1) + (num * arr[1]);
+        arr[0] = (lead > 0 ? num : num * -1) + ((num > 0 ? lead : lead * -1) * arr[1]);
     };
     // Negative denominator and numerator make positive fraction
-    if (arr[1] < 0 && arr[0] < 0) arr = arr.map(v => Math.abs(v))
+    if (arr[1] < 0 && arr[0] < 0) arr = arr.map(v => Math.abs(v));
     // negative denominator switched to negative numerator
-    else if (arr[1] < 0) arr = arr.map(v => v * (-1))
+    else if (arr[1] < 0) arr = arr.map(v => v * (-1));
     arr = arr.map(v => +v) // convert all to nums
     return arr;
 };

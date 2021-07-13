@@ -89,6 +89,14 @@ describe("Operations", () => {
             const quotient = divide("-12/3", "11/2");
             expect(quotient).toBe("-8/11");
         });
+        it("negative proper fractions => proper fraction", () => {
+            const quotient = divide("1/-3", "-2/4");
+            expect(quotient).toBe("2/3");
+        });
+        it("negative mixed number => negative proper fraction", () => {
+            const quotient = divide("1_-2/3", "4_5/6");
+            expect(quotient).toBe("-10/29");
+        });
     });
 
     describe("Add", () => {
