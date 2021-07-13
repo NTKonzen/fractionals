@@ -31,6 +31,11 @@ describe("Operations", () => {
 
             expect(sum).toBe("17/35");
         });
+        it("returns sum as improper fraction when given improper fractions", () => {
+            const sum = add("2/5", "3_1/7");
+
+            expect(sum).toBe("3_19/35");
+        });
     });
 
     describe("Subtract", () => {

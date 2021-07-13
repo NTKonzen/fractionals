@@ -23,6 +23,16 @@ function convertToNums(arr) {
     };
     arr = arr.map(v => +v)
     return arr;
+};
+
+function convertToMixed(arr) {
+    if (arr[0] === arr[1]) return 1;
+    else if (arr[0] > arr[1]) {
+        let num = Math.floor(arr[0] / arr[1]);
+        arr[0] = arr[0] - (num * arr[1]);
+        return `${num}_${arr[0]}/${arr[1]}`
+    };
+    return arr.join('/');
 }
 
-module.exports = { findCommonDiv, convertToNums };
+module.exports = { findCommonDiv, convertToNums, convertToMixed };

@@ -1,4 +1,4 @@
-let { findCommonDiv, convertToNums } = require("./assistFuncs.js");
+let { findCommonDiv, convertToNums, convertToMixed } = require("./assistFuncs.js");
 
 function multiply(x, y) {
     let xArr = convertToNums(x.split('/'));
@@ -25,8 +25,8 @@ function divide(x, y) {
 }
 
 function add(x, y) {
-    let xArr = x.split("/").map(v => +v);
-    let yArr = y.split("/").map(v => +v);
+    let xArr = convertToNums(x.split('/'));
+    let yArr = convertToNums(y.split('/'));
     let commonDenom = xArr[1] * yArr[1];
     xArr[0] *= yArr[1];
     yArr[0] *= xArr[1];
@@ -36,7 +36,7 @@ function add(x, y) {
         newArr = newArr.map(v => v / commonDiv);
         commonDiv = findCommonDiv(newArr);
     }
-    return newArr.join('/');
+    return convertToMixed(newArr);
 }
 
 function subtract(x, y) {
