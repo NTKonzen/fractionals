@@ -129,6 +129,11 @@ describe("Operations", () => {
             const quotient = divide("0", "84893");
             expect(quotient).toBe("0");
         });
+        it("throws error when dividing by zero", () => {
+            expect(() => {
+                divide("23/2", "0/23");
+            }).toThrow("Cannot divide by zero");
+        })
     });
 
     describe("Add", () => {
@@ -258,6 +263,6 @@ describe("Operations", () => {
         it("whole numbers => zero", () => {
             const difference = subtract("1", "1");
             expect(difference).toBe("0");
-        })
+        });
     });
 })

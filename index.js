@@ -28,6 +28,4 @@ inquirer
 
         console.log(result);
     })
-    .catch(err => {
-        console.log(err.message)
-    })
+    .catch(console.log)

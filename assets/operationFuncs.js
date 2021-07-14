@@ -24,6 +24,7 @@ function divide(x, y) {
     // multiply fractions together
     let newArr = xArr.map((v, i) => v * yArr[i]);
     if (newArr[0] === 0) return "0";
+    if (newArr[1] === 0) throw new Error("Cannot divide by zero");
     let commonDiv = findCommonDiv(newArr);
     newArr = newArr.map(v => v / commonDiv); // divide by GCD
     return convertToMixed(newArr);

@@ -16,6 +16,7 @@ function findCommonDiv([x, y]) {
 
 // formats arrayed fraction
 function convertToNums(arr) {
+    if (+arr[1] === 0) throw new Error("Thou shalt not divide by zero");
     // Set default denominator of 1 to handle whole numbers
     if (!arr[1]) arr[1] = 1;
     // Turns mixed nums into improper fractions
