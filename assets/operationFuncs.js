@@ -9,6 +9,7 @@ function multiply(x, y) {
     let yArr = convertToNums(y.split('/'));
     // Multiply fractions together
     let newArr = xArr.map((v, i) => v * yArr[i]);
+    if (newArr[0] === 0) return "0";
     let commonDiv = findCommonDiv(newArr);
     newArr = newArr.map(v => v / commonDiv); // divide by GCD
     return convertToMixed(newArr);
@@ -22,6 +23,7 @@ function divide(x, y) {
     if (yArr[1] < 0 && yArr[0] > 0) yArr = yArr.map(v => v * -1);
     // multiply fractions together
     let newArr = xArr.map((v, i) => v * yArr[i]);
+    if (newArr[0] === 0) return "0";
     let commonDiv = findCommonDiv(newArr);
     newArr = newArr.map(v => v / commonDiv); // divide by GCD
     return convertToMixed(newArr);
@@ -35,6 +37,7 @@ function add(x, y) {
     xArr[0] *= yArr[1];
     yArr[0] *= xArr[1];
     let newArr = [xArr[0] + yArr[0], commonDenom]; // add fractions
+    if (newArr[0] === 0) return "0";
     let commonDiv = findCommonDiv(newArr);
     newArr = newArr.map(v => v / commonDiv); // divide by GCD
     return convertToMixed(newArr);
@@ -48,6 +51,7 @@ function subtract(x, y) {
     xArr[0] *= yArr[1];
     yArr[0] *= xArr[1];
     let newArr = [xArr[0] - yArr[0], commonDenom]; // subtract fractions
+    if (newArr[0] === 0) return "0";
     let commonDiv = findCommonDiv(newArr);
     newArr = newArr.map(v => v / commonDiv); // divide by GCD
     return convertToMixed(newArr);

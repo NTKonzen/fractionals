@@ -50,6 +50,22 @@ describe("Operations", () => {
             const product = multiply("-10/3", "4/3");
             expect(product).toBe("-4_4/9");
         });
+        it("proper fraction => zero", () => {
+            const product = multiply("56/70", "0");
+            expect(product).toBe("0");
+        });
+        it("improper fraction => zero", () => {
+            const product = multiply("0/1", "9948/45");
+            expect(product).toBe("0");
+        });
+        it("mixed number => zero", () => {
+            const product = multiply("0_0/2", "3_23/4");
+            expect(product).toBe("0");
+        });
+        it("whole numbers => zero", () => {
+            const product = multiply("0", "8849");
+            expect(product).toBe("0");
+        });
     });
 
     describe("Divide", () => {
@@ -96,6 +112,22 @@ describe("Operations", () => {
         it("negative mixed number => negative proper fraction", () => {
             const quotient = divide("1_-2/3", "4_5/6");
             expect(quotient).toBe("-10/29");
+        });
+        it("proper fraction => zero", () => {
+            const quotient = divide("0", "67/90");
+            expect(quotient).toBe("0");
+        });
+        it("improper fraction => zero", () => {
+            const quotient = divide("0", "-43/2");
+            expect(quotient).toBe("0");
+        });
+        it("mixed number => zero", () => {
+            const quotient = divide("0", "4_7/-3");
+            expect(quotient).toBe("0");
+        });
+        it("whole numbers => zero", () => {
+            const quotient = divide("0", "84893");
+            expect(quotient).toBe("0");
         });
     });
 
@@ -164,6 +196,22 @@ describe("Operations", () => {
             const sum = add("-4_24/30", "2_6/10");
             expect(sum).toBe("-2_1/5");
         });
+        it("proper fraction => zero", () => {
+            let sum = add("-1/2", "1/2");
+            expect(sum).toBe("0");
+        });
+        it("improper fraction => zero", () => {
+            let sum = add("4/2", "4/-2");
+            expect(sum).toBe("0");
+        });
+        it("mixed number => zero", () => {
+            let sum = add("1_-3/4", "7/4");
+            expect(sum).toBe("0");
+        });
+        it("whole numbers => zero", () => {
+            let sum = add("-3", "3");
+            expect(sum).toBe("0")
+        });
     });
 
     describe("Subtract", () => {
@@ -195,5 +243,21 @@ describe("Operations", () => {
             const difference = subtract("2_3/4", "3/4");
             expect(difference).toBe("2");
         });
+        it("proper fraction => zero", () => {
+            const difference = subtract("-3/4", "3/-4");
+            expect(difference).toBe("0");
+        });
+        it("improper fraction => zero", () => {
+            const difference = subtract("14/3", "-14/-3");
+            expect(difference).toBe("0");
+        });
+        it("mixed number => zero", () => {
+            const difference = subtract("3_1/3", "-3_1/-3");
+            expect(difference).toBe("0");
+        });
+        it("whole numbers => zero", () => {
+            const difference = subtract("1", "1");
+            expect(difference).toBe("0");
+        })
     });
 })
