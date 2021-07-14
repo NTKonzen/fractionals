@@ -1,28 +1,32 @@
 // Finds and returns GCD (Greatest Common Divisor)
 function findCommonDiv(arr) {
-    let divMap = {};
-    arr.forEach(v => {
-        v = Math.abs(v);
-        let key = v;
-        for (let i = 2; i <= v; i++) {
-            if (v % i === 0) {
-                if (divMap[key]) divMap[key].push(i)
-                else divMap[key] = [i];
-                v = v / i
-                i = 1;
+    let divMap = {}; // map of {value: [binary divisors],...}
+    arr.forEach(val => {
+        val = Math.abs(val); // make pos
+        let key = val; // save map key
+        for (let div = 2; div <= val; div++) {
+            // all nums divisible by 1, start at 2
+            if (val % div === 0) {
+                // push divisor to number-associated array in map
+                if (divMap[key]) divMap[key].push(div);
+                else divMap[key] = [div];
+                val = val / div; // divide number by divisor
+                div = 1; // reset i
             }
-        }
+        };
     });
-    let divArr = Object.values(divMap)
+    let divArr = Object.values(divMap);
     let first = divArr[0];
     let second = divArr[1];
-    if (!first || !second) return 1;
-    second = second.filter(v => first.includes(v))
+    if (!first || !second) return 1; // if no GCD
+    // filter out uncommon divisors
+    second = second.filter(v => first.includes(v));
     let filteredArr = first
         .filter(v => second.includes(v))
-        .filter((v, i) => second[i] === v)
-    let foundDiv = 1;
-    if (filteredArr.length > 0) foundDiv = filteredArr.reduce((t, v) => t * v)
+        .filter((v, i) => second[i] === v); // ensure same number of common divisors
+    let foundDiv = 1; // default GCD of 1
+    // Collapse all common divisors into single GCD
+    if (filteredArr.length > 0) foundDiv = filteredArr.reduce((t, v) => t * v);
     return foundDiv;
 };
 
