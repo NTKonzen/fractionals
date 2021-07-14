@@ -24,7 +24,7 @@ function convertToNums(arr) {
         let lead = +first[0]; // leading number
         let num = +first[1]; // numerator
         // Multiply leading number with denominator and add to numerator
-        arr[0] = (lead > 0 ? num : num * -1) + ((num > 0 ? lead : lead * -1) * arr[1]);
+        arr[0] = (lead > 0 ? num : num * -1) + ((num > 0 ? lead : lead * -1) * Math.abs(arr[1]));
     };
     // Negative denominator and numerator make positive fraction
     if (arr[1] < 0 && arr[0] < 0) arr = arr.map(v => Math.abs(v));

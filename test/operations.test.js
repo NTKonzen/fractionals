@@ -252,7 +252,7 @@ describe("Operations", () => {
             expect(difference).toBe("0");
         });
         it("mixed number => zero", () => {
-            const difference = subtract("3_1/3", "-3_1/-3");
+            const difference = subtract("3_1/3", "-3_2/-6");
             expect(difference).toBe("0");
         });
         it("whole numbers => zero", () => {
